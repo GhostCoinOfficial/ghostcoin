@@ -1707,12 +1707,10 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 
     if (IsProofOfWork())
     {
-        int64 nReward = GetProofOfWorkReward(nFees);
+        int64_t nReward = GetProofOfWorkReward(GetPowHeight(pindex), nFees);
         // Check coinbase reward
         if (vtx[0].GetValueOut() > nReward)
-            return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRI64d" vs calculated=%"PRI64d")",
-                vtx[0].GetValueOut(),
-                nReward));
+            return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")", vtx[0].GetValueOut(), nReward));
     }
 
     if (IsProofOfStake())
