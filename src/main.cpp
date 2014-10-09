@@ -1705,6 +1705,16 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         mapQueuedChanges[hashTx] = CTxIndex(posThisTx, tx.vout.size());
     }
 
+    if (IsProofOfWork())
+    {
+        int64 nReward = GetProofOfWorkReward(nFees);
+        // Check coinbase reward
+        if (vtx[0].GetValueOut() > nReward)
+            return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRI64d" vs calculated=%"PRI64d")",
+                vtx[0].GetValueOut(),
+                nReward));
+    }
+
     if (IsProofOfStake())
     {
         // ppcoin: coin stake tx earns reward instead of paying fee
