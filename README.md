@@ -1,5 +1,3 @@
-POD-CryptoAsian
-
 GhostCoin development tree
 
 GhostCoin is a PoS-based cryptocurrency.
@@ -8,13 +6,12 @@ Features:
 * Symbol: GHOST
 * X11 PoW/PoS
 * 60 second blocktime
-* 20 Million PoW coins
+* TBA Million PoW coins
 * 4,000 GHOST block reward
-* 5,000 PoW block limit (pure PoS after 5,000th PoW block)
+* TBA PoW block limit (pure PoS after 5,000th PoW block)
 * Dynamic interest 1-3%, based on the amount of coins staked
 * P2P Port: 44677
 * RPC Port: 44678
-* Dedicated Node: seed.ghostcoin.org
 
 
 Development process
