@@ -1,6 +1,6 @@
 GhostCoin development tree
 
-GhostCoin is a PoS-based cryptocurrency.
+GhostCoin is a PoW+PoS based cryptocurrency.
 
 Features:
 * Symbol: GHOST
