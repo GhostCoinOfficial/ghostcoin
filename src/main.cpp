@@ -1704,7 +1704,10 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 
         mapQueuedChanges[hashTx] = CTxIndex(posThisTx, tx.vout.size());
     }
-
+/* Left for transparency. No longer needed as we're forking into POS.
+ * This code was not in the original launch. Some coins got minted
+ * improperly. In order to save everyones coins, some bad blocks had
+ * to be allowed.
     if (IsProofOfWork())
     {
         int64_t nReward = GetProofOfWorkReward(GetPowHeight(pindex), nFees);
@@ -1712,7 +1715,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         if (vtx[0].GetValueOut() > nReward)
             return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")", vtx[0].GetValueOut(), nReward));
     }
-
+*/
     if (IsProofOfStake())
     {
         // ppcoin: coin stake tx earns reward instead of paying fee
