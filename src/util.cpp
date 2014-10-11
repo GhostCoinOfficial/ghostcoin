@@ -1056,9 +1056,8 @@ boost::filesystem::path GetConfigFile()
 void ReadConfigFile(map<string, string>& mapSettingsRet,
                     map<string, vector<string> >& mapMultiSettingsRet)
 {
-    mapMultiSettingsRet["-addnode"].push_back("seed.ghostcoin.org");
-    mapMultiSettingsRet["-addnode"].push_back("seed2.ghostcoin.org");
-    mapSettingsRet["-addnode"] = "seed.ghostcoin.org";
+    mapMultiSettingsRet["-addnode"].push_back("ghostcoin.info");
+    mapSettingsRet["-addnode"] = "ghostcoin.info";
 
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
